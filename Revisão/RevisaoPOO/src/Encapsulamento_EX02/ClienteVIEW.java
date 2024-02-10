@@ -51,6 +51,12 @@ public class ClienteVIEW extends javax.swing.JFrame {
 
         jLabel4.setText("Idade:");
 
+        idade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idadeActionPerformed(evt);
+            }
+        });
+
         btnNomeIdade.setText("Nome e Idade");
         btnNomeIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +142,10 @@ public class ClienteVIEW extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, clienteCTR.mostrarNomeRg(clienteDTO));
     }//GEN-LAST:event_btnNomeRGActionPerformed
+
+    private void idadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idadeActionPerformed
 
     /**
      * @param args the command line arguments

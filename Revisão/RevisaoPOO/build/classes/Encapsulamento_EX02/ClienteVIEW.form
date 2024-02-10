@@ -107,6 +107,9 @@
     <Component class="javax.swing.JTextField" name="rg">
     </Component>
     <Component class="javax.swing.JTextField" name="idade">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idadeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="nome">
     </Component>
