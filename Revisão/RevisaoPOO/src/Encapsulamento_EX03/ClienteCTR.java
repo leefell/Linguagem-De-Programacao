@@ -6,6 +6,5 @@ public class ClienteCTR {
     
     public String Verifica(ClienteDTO clienteDTO){
         return clienteDAO.Verifica(clienteDTO);
-    }
-    
+    }   
 }
