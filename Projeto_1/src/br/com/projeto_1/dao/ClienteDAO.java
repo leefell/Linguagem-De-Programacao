@@ -35,9 +35,13 @@ public class ClienteDAO {
             
             //Executa o comando SQL no bando de Dados
             stmt.execute(comando.toUpperCase());
+            return true;
             
         }catch(Exception e){
-            
+            System.out.println(e.getMessage());
+            return false;
+        }finally{
+          ConexaoDAO.CloseDB();
         }
     }
     
