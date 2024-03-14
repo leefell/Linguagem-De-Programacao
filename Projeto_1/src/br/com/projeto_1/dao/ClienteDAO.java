@@ -75,4 +75,63 @@ public class ClienteDAO {
             return rs;
         }
     }
+    
+    public boolean alterarCliente(ClienteDTO clienteDTO){
+        try{
+            // chama o metodo que esta na ConexaoDAO para abrir o banco de dados
+            ConexaoDAO.ConnectDB();
+            
+            // Instancia o Statment que sera responsavel por executar alguma coisa no BD
+            stmt = ConexaoDAO.con.createStatement();
+            
+            // Comando SQL que sera executado no banco de dados
+            String comando = "Update cliente set "
+                    + "nome_cli = '" + clienteDTO.getNome_cli() + "', "
+                    + "logradouro_cli = '" + clienteDTO.getLogradouro_cli()+ "', "
+                    + "numero_cli = " + clienteDTO.getNumero_cli()+ ", "
+                    + "bairro_cli = '" + clienteDTO.getBairro_cli() + "', "
+                    + "cidade_cli = '" + clienteDTO.getCidade_cli() + "', "
+                    + "estado_cli = '" + clienteDTO.getEstado_cli() + "', "
+                    + "cep_cli = '" + clienteDTO.getCep_cli()+ "', "
+                    + "cpf_cli = '" + clienteDTO.getCpf_cli() + "', "
+                    + "rg_cli = '" + clienteDTO.getRg_cli() + "' "
+                    + "where id_cli = " + clienteDTO.getId_cli();
+            System.out.println(comando);
+            //Executa o comando SQL no bando de Dados
+            stmt.execute(comando.toUpperCase());
+            ConexaoDAO.con.commit();
+            return true;
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }finally{
+            ConexaoDAO.CloseDB();
+        }
+    }
+    
+    public boolean excluirCliente(ClienteDTO clienteDTO){
+        try{
+            // chama o metodo que esta na ConexaoDAO para abrir o banco de dados
+            ConexaoDAO.ConnectDB();
+            
+            // Instancia o Statment que sera responsavel por executar alguma coisa no BD
+            stmt = ConexaoDAO.con.createStatement();
+            
+            // Comando SQL que sera executado no banco de dados
+            String comando = "Delete from cliente where id_cli = " + clienteDTO.getId_cli();
+            System.out.println(comando);
+            //Executa o comando SQL no bando de Dados
+            stmt.execute(comando.toUpperCase());
+            ConexaoDAO.con.commit();
+            return true;
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return false;
+        }finally{
+            ConexaoDAO.CloseDB();
+        }
+    }
+    
 }// fecha a classe 
