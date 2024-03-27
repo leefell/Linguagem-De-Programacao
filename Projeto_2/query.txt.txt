@@ -1,0 +1,21 @@
+CREATE TABLE aluno
+(
+	id_aluno serial,
+	nome_aluno character varying(50),
+    	rg_aluno character varying(15),
+    	cpf_aluno character varying(14),
+    	telefone_aluno character varying(15),
+    	numeroCasa_aluno integer,
+    	dtaNascimento_aluno date,
+    	cep_aluno character varying(9),
+    	cidade_aluno character varying(30),
+    	bairro_aluno character varying(30),
+    	estado_aluno character varying(2),
+    	curso_aluno character varying(40),
+    	email_aluno character varying(30),
+	CONSTRAINT aluno_pkey PRIMARY KEY(id_aluno),
+	CONSTRAINT aluno_cpf_key UNIQUE (cpf_aluno),
+	CONSTRAINT aluno_rg_key UNIQUE (rg_aluno)
+)
+
+Select c.*, to_char(c.dtanascimento_aluno, 'dd/MM/yyyy') as data_nascimento from aluno c where nome_aluno like 'A%' order by c.nome_aluno
