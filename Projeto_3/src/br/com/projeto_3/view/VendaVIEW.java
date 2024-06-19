@@ -96,7 +96,7 @@ public class VendaVIEW extends javax.swing.JInternalFrame {
                         Integer.parseInt(String.valueOf(
                         jtl_consultar_pro_selecionado.getValueAt(i, 3)));
             }
-            TotalVenda.setText(String.format("%.2f", total));
+            TotalVenda.setText(String.valueOf(total));
         }catch(Exception erTab){
             System.out.println("Erro SQL: " + erTab);
         }
